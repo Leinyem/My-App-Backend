@@ -141,8 +141,7 @@ router.get("/one-book/:bookId", async (req, res) => {
   const { bookId } = req.params;
 
   BookModel.findById(bookId)
-    .populate("author", "username")
-    .populate("likes")
+    .populate("author paragraph likes")
     .then((responseFromDb) => {
       console.log("Here are your books!", responseFromDb);
       res.status(200).json(responseFromDb);
