@@ -47,7 +47,7 @@ router.post("/add-paragraph/", async (req, res) => {
       { new: true }
     ).populate("ownedBooks");
 
-    console.log(updatedBook, newParagraph);
+    console.log({ updatedBook, newParagraph, updatedUser });
 
     res.status(201).json({ book: updatedBook, updatedUser });
   } catch (error) {
@@ -147,7 +147,7 @@ router.delete("/delete-paragraph/:bookId/:paragraphId", async (req, res) => {
       bookId,
       { $pull: { paragraph: paragraphId } },
       { new: true }
-    ).populate("author book likes");
+    ).populate("author paragraph likes");
 
     console.log("Paragraph deleted!", deletedParagraph);
 
