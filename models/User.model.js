@@ -5,42 +5,42 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      required: [true, 'Username is required.'],
+      required: [true, "Username is required."],
       unique: true,
-      trim: true
+      trim: true,
     },
     email: {
       type: String,
-      required: [true, 'Email is required.'],
+      required: [true, "Email is required."],
       unique: true,
       lowercase: true,
-      trim: true
+      trim: true,
     },
     password: {
       type: String,
-      required: [true, 'Password is required.']
+      required: [true, "Password is required."],
     },
-  profileImage: {
-    type: String,
-    default: ''
-  },  
-   
-  createdBooks: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Book', 
+    profileImage: {
+      type: String,
+      default: "",
+    },
 
-  }],
+    createdBooks: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Book",
+      },
+    ],
 
-  borrowedBooks: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Book', 
-
-  }],
-
+    borrowedBooks: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Book",
+      },
+    ],
   },
 
-  {timestamps: true}
-  
+  { timestamps: true }
 );
 
 const UserModel = model("User", userSchema);
