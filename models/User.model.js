@@ -22,7 +22,8 @@ const userSchema = new Schema(
     },
     profileImage: {
       type: String,
-      default: "",
+      default:
+        "https://t3.ftcdn.net/jpg/12/81/12/16/360_F_1281121663_JexyrHrABeHc8ItCyFBMCGhjePQzLUBV.jpg",
     },
 
     createdBooks: [
